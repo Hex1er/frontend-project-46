@@ -6,4 +6,4 @@
 
 ### Json Files Comparison
 
-[![asciicast](https://asciinema.org/a/604193.svg)](https://asciinema.org/a/604193)
+[![asciicast](https://asciinema.org/a/672492.svg)](https://asciinema.org/a/672492)
