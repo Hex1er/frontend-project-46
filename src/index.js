@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import generateDiff from './generateDiff.js';
 
 const getAbsolutePath = (filepath) => path.resolve(process.cwd(), filepath);
 
@@ -7,12 +8,17 @@ const readFile = (filepath) => fs.readFileSync(filepath, 'utf-8');
 
 const parseJson = (fileContent) => JSON.parse(fileContent);
 
-export const parse = (file1, file2) => {
-  const path1 = getAbsolutePath(file1);
-  const path2 = getAbsolutePath(file2);
-  const fileContent1 = readFile(path1);
-  const fileContent2 = readFile(path2);
-  const data1 = parseJson(fileContent1);
-  const data2 = parseJson(fileContent2);
-  return { data1, data2 };
+const readAndParseFile = (filepath) => {
+  const absolutePath = getAbsolutePath(filepath);
+  const fileContent = readFile(absolutePath);
+  return parseJson(fileContent);
 };
+
+const genDiff = (filepath1, filepath2) => {
+  const data1 = readAndParseFile(filepath1);
+  const data2 = readAndParseFile(filepath2);
+  const diff = generateDiff(data1, data2);
+  return diff;
+};
+
+export default genDiff;
