@@ -20,4 +20,15 @@ describe('genDiff', () => {
 
     expect(actual).toBe(expected);
   });
+
+  test('should correctly compare flat YAML files', () => {
+    const file1Path = getFixturePath('file1.yml');
+    const file2Path = getFixturePath('file2.yml');
+
+    const expected = readFile('expected_diff.txt');
+
+    const actual = genDiff(file1Path, file2Path);
+
+    expect(actual).toBe(expected);
+  });
 });
