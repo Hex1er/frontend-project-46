@@ -7,8 +7,8 @@
 
 ### Json Files Comparison
 
-[![asciicast](https://asciinema.org/a/680667.svg)](https://asciinema.org/a/680667)
+[![asciicast](https://asciinema.org/a/680680.svg)](https://asciinema.org/a/680680)
 
 ### Yaml Files Comparison
 
-[![asciicast](https://asciinema.org/a/680668.svg)](https://asciinema.org/a/680668)
+[![asciicast](https://asciinema.org/a/680677.svg)](https://asciinema.org/a/680677)
