@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-test('JSON stylish', () => {
+test('JSON stylish format', () => {
   const file1Path = getFixturePath('file1.json');
   const file2Path = getFixturePath('file2.json');
 
@@ -20,7 +20,7 @@ test('JSON stylish', () => {
   expect(actual).toBe(expected);
 });
 
-test('JSON plain', () => {
+test('JSON plain format', () => {
   const file1Path = getFixturePath('file1.json');
   const file2Path = getFixturePath('file2.json');
 
@@ -31,7 +31,18 @@ test('JSON plain', () => {
   expect(actual).toBe(expected);
 });
 
-test('YAML stylish', () => {
+test('JSON json format', () => {
+  const file1Path = getFixturePath('file1.json');
+  const file2Path = getFixturePath('file2.json');
+
+  const expected = readFile('expected_json.txt');
+
+  const actual = genDiff(file1Path, file2Path, 'json');
+
+  expect(actual).toBe(expected);
+});
+
+test('YAML stylish format', () => {
   const file1Path = getFixturePath('file1.yml');
   const file2Path = getFixturePath('file2.yml');
 
@@ -42,13 +53,24 @@ test('YAML stylish', () => {
   expect(actual).toBe(expected);
 });
 
-test('YAML plain', () => {
+test('YAML plain format', () => {
   const file1Path = getFixturePath('file1.yml');
   const file2Path = getFixturePath('file2.yml');
 
   const expected = readFile('expected_plain.txt');
 
   const actual = genDiff(file1Path, file2Path, 'plain');
+
+  expect(actual).toBe(expected);
+});
+
+test('YAML json format', () => {
+  const file1Path = getFixturePath('file1.yml');
+  const file2Path = getFixturePath('file2.yml');
+
+  const expected = readFile('expected_json.txt');
+
+  const actual = genDiff(file1Path, file2Path, 'json');
 
   expect(actual).toBe(expected);
 });
