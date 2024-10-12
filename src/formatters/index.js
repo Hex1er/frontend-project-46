@@ -1,15 +1,13 @@
 import formatStylish from './stylish.js';
+import formatPlain from './plain.js';
 
-const format = (diff, formatterName = 'stylish') => {
+const getFormat = (diff, formatterName = 'stylish') => {
   switch (formatterName) {
     case 'stylish':
       return formatStylish(diff);
-    // будут другие форматеры 
-    // case 'json':
-    //   return formatJson(diff);
-    default:
-      throw new Error('format not found');
+    case 'plain':
+      return formatPlain(diff);
   }
 };
 
-export default format;
+export default getFormat;
