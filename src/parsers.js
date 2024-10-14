@@ -2,7 +2,7 @@ import path from 'path';
 import yaml from 'js-yaml';
 
 const parse = (filepath, fileContent) => {
-  const ext = path.extname(filepath);
+  const ext = path.extname(filepath).slice(1);
 
   switch (ext) {
     case '.json':
@@ -13,7 +13,7 @@ const parse = (filepath, fileContent) => {
       return yaml.load(fileContent);
 
     default:
-      throw new Error(`format not found`);
+      throw new Error(`Unsupported format: ${ext}`);
   }
 };
 
