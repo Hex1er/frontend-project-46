@@ -29,11 +29,8 @@ const formatPlain = (diff, path = []) => {
         const newVal = formatValue(newValue);
         return `Property '${node}' was updated. From ${oldVal} to ${newVal}`;
       }
-      case 'complex': {
-        return formatPlain(children, newPath);
-      }
       default:
-        return '';
+        return formatPlain(children, newPath);;
     }
   });
   return newItems.join('\n');
