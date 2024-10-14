@@ -20,10 +20,10 @@ const formatValue = (value, depth) => {
 const processDiff = (diff, depth) => {
   const chars = { added: '+ ', removed: '- ', unchanged: '  ' };
 
-  const items = diff.flatMap(({ key, value, state }) => {
+  const items = diff.flatMap(({ key, state, value, children }) => {
     switch (state) {
       case 'complex':
-        return generateLine(key, processDiff(value, depth + 1), '  ', depth + 1);
+        return generateLine(key, processDiff(children, depth + 1), '  ', depth + 1);
       case 'updated':
         return [
           generateLine(key, formatValue(value.oldValue, depth + 1), chars.removed, depth + 1),

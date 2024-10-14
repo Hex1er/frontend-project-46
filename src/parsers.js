@@ -5,11 +5,11 @@ const parse = (filepath, fileContent) => {
   const ext = path.extname(filepath).slice(1);
 
   switch (ext) {
-    case '.json':
+    case 'json':
       return JSON.parse(fileContent);
 
-    case '.yml':
-    case '.yaml':
+    case 'yml':
+    case 'yaml':
       return yaml.load(fileContent);
 
     default:
