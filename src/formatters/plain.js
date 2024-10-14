@@ -13,7 +13,9 @@ const formatValue = (value) => {
 const formatPlain = (diff, path = []) => {
   const items = diff.filter(({ state }) => state !== 'unchanged');
 
-  const newItems = items.map(({ key, value, state, children }) => {
+  const newItems = items.map(({
+    key, value, state, children,
+  }) => {
     const newPath = path.concat(key);
     const node = newPath.join('.');
     switch (state) {
@@ -30,7 +32,7 @@ const formatPlain = (diff, path = []) => {
         return `Property '${node}' was updated. From ${oldVal} to ${newVal}`;
       }
       default:
-        return formatPlain(children, newPath);;
+        return formatPlain(children, newPath);
     }
   });
   return newItems.join('\n');

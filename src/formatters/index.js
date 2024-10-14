@@ -10,6 +10,8 @@ const getFormat = (diff, formatterName = 'stylish') => {
       return formatPlain(diff);
     case 'json':
       return formatJson(diff);
+    default:
+      throw new Error(`Unsupported formatter: ${formatterName}`);
   }
 };
 
