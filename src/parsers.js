@@ -1,10 +1,7 @@
-import path from 'path';
 import yaml from 'js-yaml';
 
-const parse = (filepath, fileContent) => {
-  const ext = path.extname(filepath).slice(1);
-
-  switch (ext) {
+const parse = (fileContent, format) => {
+  switch (format) {
     case 'json':
       return JSON.parse(fileContent);
 
@@ -13,7 +10,7 @@ const parse = (filepath, fileContent) => {
       return yaml.load(fileContent);
 
     default:
-      throw new Error(`Unsupported format: ${ext}`);
+      throw new Error(`Unsupported format: ${format}`);
   }
 };
 

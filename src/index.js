@@ -8,15 +8,18 @@ const getAbsolutePath = (filepath) => path.resolve(process.cwd(), filepath);
 
 const readFile = (filepath) => fs.readFileSync(filepath, 'utf-8');
 
-const readAndParseFile = (filepath) => {
+const getFormatFromFilepath = (filepath) => path.extname(filepath).slice(1);
+
+const getData = (filepath) => {
   const absolutePath = getAbsolutePath(filepath);
   const fileContent = readFile(absolutePath);
-  return parse(filepath, fileContent);
+  const format = getFormatFromFilepath(filepath);
+  return parse(fileContent, format);
 };
 
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
-  const data1 = readAndParseFile(filepath1);
-  const data2 = readAndParseFile(filepath2);
+  const data1 = getData(filepath1);
+  const data2 = getData(filepath2);
   const diff = generateDiff(data1, data2);
   return getFormat(diff, formatName);
 };
