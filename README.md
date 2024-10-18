@@ -24,8 +24,8 @@ Utility features:
 
 ### Json Files Comparison
 
-<script src="https://asciinema.org/a/680680.js" id="asciicast-680680" async="true"></script>
+<a href="https://asciinema.org/a/680680" target="_blank"><img src="https://asciinema.org/a/680680.svg" /></a>
 
 ### Yaml Files Comparison
 
-<script src="https://asciinema.org/a/680677.js" id="asciicast-680677" async="true"></script>
+<a href="https://asciinema.org/a/680677" target="_blank"><img src="https://asciinema.org/a/680677.svg" /></a>
